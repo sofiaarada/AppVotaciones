@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Sistema de Votaciones 2026{% endblock %}
+
+{% block content %}
+
+    <main>
+        <div class="container">
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1>Registraduría Nacional del Estado Civil</h1>
+                    <h2>Sistema de Consulta y Registro Electoral 2026</h2>
+                    <p>Tu derecho al voto es fundamental para la democracia. Consulta tu puesto de votación o actualiza tus datos electorales.</p>
+                </div>
+                <div class="hero-image">
+                    <div class="colombian-flag">
+                        <div class="flag-stripe yellow"></div>
+                        <div class="flag-stripe blue"></div>
+                        <div class="flag-stripe red"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="services-section">
+                <div class="services-container">
+                    <div class="service-card consulta-card">
+                        <div class="service-icon"></div>
+                        <h3>Consulta de Puesto de Votación</h3>
+                        <p>Verifica tu lugar de votación con tu número de cédula</p>
+                        <a href="/consult" class="service-btn">Consultar</a>
+                    </div>
+
+                    <div class="service-card registro-card">
+                        <div class="service-icon"></div>
+                        <h3>Registro Electoral</h3>
+                        <p>Regístrate o actualiza tus datos para ejercer tu derecho al voto</p>
+                        <a href="/register" class="service-btn">Registrarse</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <div class="info-container">
+                    <div class="info-item">
+                        <h4>Elecciones 2026</h4>
+                        <p>Las próximas elecciones presidenciales se realizarán el próximo año. Asegúrate de estar registrado.</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Estadísticas</h4>
+                        <p>Más de 39 millones de colombianos están habilitados para votar en las elecciones.</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Democracia</h4>
+                        <p>Tu voto es tu voz. Participa activamente en la construcción del futuro de Colombia.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Registraduría Nacional del Estado Civil{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="https://www.registraduria.gov.co/themes/contrib/registraduria/logo.png" alt="Registraduría Nacional" onerror="this.style.display='none'">
+                <h1>Registraduría Nacional del Estado Civil</h1>
+            </div>
+            <div class="header-info">
+                <p>Sistema Electoral Colombiano</p>
+                <p>2026</p>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/consult">Consulta</a></li>
+                <li><a href="/register">Registro</a></li>
+                <li><a href="https://www.registraduria.gov.co" target="_blank">Sitio Oficial</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Registraduría Nacional del Estado Civil - República de Colombia</p>
+            <p>Todos los derechos reservados</p>
+        </div>
+    </footer>
+</body>
+</html>

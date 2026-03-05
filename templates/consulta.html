@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Consulta de Puesto de Votación - Registraduría Nacional{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="card-consulta">
+            <h2>Consulta de Puesto de Votación</h2>
+            <p>Para consultar su puesto de votación, ingrese su número de cédula de ciudadanía:</p>
+
+            <form method="post" class="consulta-form">
+                <label for="identificacion">
+                    <strong>Número de Cédula:</strong>
+                    <input type="text" id="identificacion" name="identificacion" placeholder="Ingrese su cédula" required maxlength="12">
+                </label>
+                <button type="submit">Consultar Puesto de Votación</button>
+            </form>
+
+            <div style="margin-top: 2rem; padding: 1rem; background-color: var(--light-gray); border-radius: 4px;">
+                <h4 style="color: var(--primary-navy); margin-bottom: 0.5rem;">Información Importante:</h4>
+                <ul style="color: var(--text-secondary); line-height: 1.6;">
+                    <li>Ingrese únicamente números sin puntos ni comas</li>
+                    <li>La consulta es gratuita y confidencial</li>
+                    <li>Si no encuentra su registro, acuda a la Registraduría más cercana</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

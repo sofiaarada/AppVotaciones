@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Registro Electoral - Registraduría Nacional{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="card-form-registro">
+            <h2>Registro Electoral</h2>
+            <p>Complete el formulario con sus datos para registrarse en el censo electoral:</p>
+
+            <form method="post" class="registro-form">
+                <label for="identificacion">
+                    <strong>Número de Cédula:</strong>
+                    <input type="text" id="identificacion" name="identificacion" placeholder="Ingrese su cédula" required maxlength="12">
+                </label>
+                <label for="nombre">
+                    <strong>Nombre Completo:</strong>
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre y apellidos" required>
+                </label>
+                <label for="puesto">
+                    <strong>Puesto de Votación:</strong>
+                    <select id="puesto" name="puesto" required>
+                        <option value="">Seleccione su puesto de votación</option>
+                        {% for puesto in puestos %}
+                        <option value="{{ puesto[0] }}">{{ puesto[1] }} - {{ puesto[2] }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+                <label for="mesa">
+                    <strong>Mesa de Votación:</strong>
+                    <select id="mesa" name="mesa" required>
+                        <option value="">Seleccione el número de mesa</option>
+                        {% for m in mesas %}
+                        <option value="{{ m }}">Mesa {{ m }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+                <button type="submit">Registrar Datos Electorales</button>
+            </form>
+
+            <div style="margin-top: 2rem; padding: 1rem; background-color: var(--light-gray); border-radius: 4px;">
+                <h4 style="color: var(--primary-navy); margin-bottom: 0.5rem;">Requisitos para el Registro:</h4>
+                <ul style="color: var(--text-secondary); line-height: 1.6;">
+                    <li>Ser mayor de 18 años</li>
+                    <li>Tener cédula de ciudadanía válida</li>
+                    <li>Residir en el municipio correspondiente</li>
+                    <li>Presentar documento de identidad original</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

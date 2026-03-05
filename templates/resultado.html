@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Resultado de Consulta - Registraduría Nacional{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="card-resultado">
+            <h2>Resultado de la Consulta Electoral</h2>
+            {% if data %}
+                <div class="resultado-info">
+                    <h3 style="color: var(--primary-navy); margin-bottom: 1rem;">Información de Votación Encontrada</h3>
+                    <div style="text-align: left; max-width: 400px; margin: 0 auto;">
+                        <p><strong>Cédula de Ciudadanía:</strong> {{ data[0] }}</p>
+                        <p><strong>Lugar de Votación:</strong> {{ data[1] }}</p>
+                        <p><strong>Dirección:</strong> {{ data[2] }}</p>
+                        <p><strong> Mesa (según puesto):</strong> {{ data[3] }}</p>
+                        <p><strong>Zona Electoral:</strong> {{ data[4] }}</p>
+                        <p><strong>Mesa registrada:</strong> {{ data[5] }}</p>
+                    </div>
+                </div>
+                <div style="margin-top: 2rem;">
+                    <a href="{{ url_for('home') }}" class="btn-volver">← Volver al Inicio</a>
+                    <a href="{{ url_for('consult') }}" class="btn-reintentar">Nueva Consulta</a>
+                </div>
+            {% else %}
+                <div class="resultado-error">
+                    <h3>No se encontró información electoral</h3>
+                    <p>El número de cédula ingresado no se encuentra registrado en nuestra base de datos electoral.</p>
+                    <p>Posibles causas:</p>
+                    <ul style="text-align: left; max-width: 400px; margin: 1rem auto;">
+                        <li>El número de cédula puede estar incorrecto</li>
+                        <li>No está registrado en el censo electoral</li>
+                        <li>Ha cambiado de domicilio recientemente</li>
+                    </ul>
+                </div>
+                <div style="margin-top: 2rem;">
+                    <a href="{{ url_for('register') }}" class="btn-volver">Registrarse</a>
+                    <a href="{{ url_for('consult') }}" class="btn-reintentar">Intentar de Nuevo</a>
+                </div>
+            {% endif %}
+
+            <div style="margin-top: 3rem; padding: 1.5rem; background-color: var(--light-gray); border-radius: 4px;">
+                <h4 style="color: var(--primary-navy); margin-bottom: 1rem;">Información Adicional:</h4>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                    Si considera que la información es incorrecta o necesita actualizar sus datos,
+                    acuda a la Registraduría Nacional más cercana con su cédula de ciudadanía.
+                </p>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                    Línea de atención: 01 8000 123 456 | Sitio web: www.registraduria.gov.co
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
