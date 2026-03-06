@@ -2,16 +2,9 @@ import sqlite3
 import os
 
 def get_connection():
-    """Return a new SQLite connection with sensible options.
 
-    - `timeout` gives SQLite up to 30 seconds to acquire a lock before
-      raising an OperationalError. This helps when a previous transaction
-      hasn’t yet fully closed.
-    - `check_same_thread=False` allows connections to be used by different
-      threads (Flask’s development server may use multiple threads).
-    """
     db_path = os.path.join(os.path.dirname(__file__), 'votaciones.db')
-    # note: keep autocommit off (the default) so we control commits explicitly
+
     return sqlite3.connect(db_path, timeout=30, check_same_thread=False)
 
 def init_database():
